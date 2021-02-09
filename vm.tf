@@ -5,7 +5,7 @@ resource "aws_instance" "prod-web-server-1" {
    key_name = aws_key_pair.deployer.id
    subnet_id = var.private-subnet1
    vpc_security_group_ids = [aws_security_group.public.id]
-   #associate_public_ip_address = true
+   associate_public_ip_address = false
    
    user_data = <<USER_DATA
 #!/bin/bash
@@ -27,7 +27,7 @@ resource "aws_instance" "prod-web-server-2" {
    key_name = aws_key_pair.deployer.id
    subnet_id = var.private-subnet2
    vpc_security_group_ids = [aws_security_group.public.id]
-   #associate_public_ip_address = true
+   associate_public_ip_address = false
    user_data = <<USER_DATA
 #!/bin/bash
 sudo apt-get update
